@@ -1,11 +1,15 @@
 // index.js
+require('dotenv').config(); 
+
+const apiKey = process.env.API_KEY;
+console.log(apiKey)
 
 // Step 1: Fetch Data from the API
 // - Create a function `fetchWeatherData(city)`
 function fetchWeatherData(city) {
-    const apiKey = 'c92766e84a92bdd6d101967fa3d2abe3';
+    
     // - Use fetch() to retrieve data from the OpenWeather API
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`)
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}}`)
     // - Handle the API response and parse the JSON
         .then(response => response.json())
     // - Log the data to the console for testing
