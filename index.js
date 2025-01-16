@@ -1,15 +1,12 @@
 // index.js
-require('dotenv').config(); 
-
-const apiKey = process.env.API_KEY;
-console.log(apiKey)
-
+//require('dotenv').config(); 
+const API_KEY = 'abc123';
 // Step 1: Fetch Data from the API
 // - Create a function `fetchWeatherData(city)`
 function fetchWeatherData(city) {
     
     // - Use fetch() to retrieve data from the OpenWeather API
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}}`)
+    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${API_KEY}`)
     // - Handle the API response and parse the JSON
         .then(response => response.json())
     // - Log the data to the console for testing
@@ -23,7 +20,7 @@ function fetchWeatherData(city) {
             const { lat, lon} = locationData[0];
             console.log(`Coordinates for ${city}: `, lat, lon);
 
-            return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=imperial`)
+            return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`)
         })
         .then(response => response.json())
         .then(weatherData => {
